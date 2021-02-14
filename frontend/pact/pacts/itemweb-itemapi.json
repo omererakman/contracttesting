@@ -1,0 +1,110 @@
+{
+  "consumer": {
+    "name": "ItemWeb"
+  },
+  "provider": {
+    "name": "ItemApi"
+  },
+  "interactions": [
+    {
+      "description": "Create item success",
+      "providerState": "Create Item Success",
+      "request": {
+        "method": "POST",
+        "path": "/api/item",
+        "headers": {
+          "Accept": "application/json, text/plain, */*"
+        },
+        "body": {
+          "name": "name",
+          "description": "description"
+        },
+        "matchingRules": {
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.description": {
+            "match": "type"
+          }
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "id": "6003ec5889f5f80627e7f490"
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "Get All Items Success",
+      "providerState": "Get All Items Success",
+      "request": {
+        "method": "GET",
+        "path": "/api/item",
+        "headers": {
+          "Accept": "application/json, text/plain, */*"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": [
+          {
+            "id": "5ff1b4b389082b5b9912ae1f",
+            "name": "name",
+            "description": "description"
+          }
+        ],
+        "matchingRules": {
+          "$.body": {
+            "min": 1
+          },
+          "$.body[*].*": {
+            "match": "type"
+          },
+          "$.body[*].id": {
+            "match": "type"
+          },
+          "$.body[*].name": {
+            "match": "type"
+          },
+          "$.body[*].description": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "Delete item success",
+      "providerState": "Delete Item Success",
+      "request": {
+        "method": "DELETE",
+        "path": "/api/item/5ff1b4b389082b5b9912ae1f",
+        "headers": {
+          "Accept": "application/json, text/plain, */*"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

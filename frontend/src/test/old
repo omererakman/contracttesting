@@ -1,0 +1,36 @@
+    
+
+    describe('Get Item by Id Success', () => {
+      beforeEach(() => provider.addInteraction(getItemByIdSuccessInteraction));
+
+      it('Test get item by id success', () => {
+        getItemRequest(provider.mockService.baseUrl, 4)
+          .then((value) => {
+            expect(value.status).toEqual(200)
+            expect(value.data.name).toEqual("name1");
+        })
+      });
+    });
+
+    describe('Get Item by Id Not Found', () => {
+      beforeEach(() => provider.addInteraction(getItemByIdNotFoundInteraction));
+
+      it('Test get item by id not found', () => {
+        getItemRequest(provider.mockService.baseUrl, 0)
+          .then((value) => {
+            expect(value.status).toEqual(404);
+        })
+      });
+    });
+
+
+    describe('Get All Items Success', () => {
+      beforeEach(() => provider.addInteraction(getAllItemsSuccessInteraction));
+
+      it('Test get all items success', () => {
+        getItemsRequest(provider.mockService.baseUrl)
+          .then((value) => {
+            expect(value.status).toEqual(200);
+        })
+      });
+    });

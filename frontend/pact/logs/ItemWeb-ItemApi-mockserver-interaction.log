@@ -1,0 +1,193 @@
+I, [2021-02-14T12:01:41.691529 #25056]  INFO -- : Registered expected interaction POST /api/item
+D, [2021-02-14T12:01:41.691828 #25056] DEBUG -- : {
+  "description": "Create item success",
+  "providerState": "Create Item Success",
+  "request": {
+    "method": "POST",
+    "path": "/api/item",
+    "headers": {
+      "Accept": "application/json, text/plain, */*"
+    },
+    "body": {
+      "name": {
+        "json_class": "Pact::SomethingLike",
+        "contents": "name"
+      },
+      "description": {
+        "json_class": "Pact::SomethingLike",
+        "contents": "description"
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    "body": {
+      "id": {
+        "json_class": "Pact::SomethingLike",
+        "contents": "6003ec5889f5f80627e7f490"
+      }
+    }
+  },
+  "metadata": null
+}
+I, [2021-02-14T12:01:41.729757 #25056]  INFO -- : Received request POST /api/item
+D, [2021-02-14T12:01:41.730057 #25056] DEBUG -- : {
+  "path": "/api/item",
+  "query": "",
+  "method": "post",
+  "body": {
+    "name": "name2",
+    "description": "description1"
+  },
+  "headers": {
+    "Content-Length": "45",
+    "Content-Type": "application/json;charset=utf-8",
+    "Accept": "application/json, text/plain, */*",
+    "User-Agent": "axios/0.21.1",
+    "Host": "127.0.0.1:36877",
+    "Connection": "close",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2021-02-14T12:01:41.730881 #25056]  INFO -- : Found matching response for POST /api/item
+D, [2021-02-14T12:01:41.731100 #25056] DEBUG -- : {
+  "status": 201,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8"
+  },
+  "body": {
+    "id": {
+      "json_class": "Pact::SomethingLike",
+      "contents": "6003ec5889f5f80627e7f490"
+    }
+  }
+}
+I, [2021-02-14T12:01:41.733125 #25056]  INFO -- : Verifying - interactions matched
+I, [2021-02-14T12:01:41.738286 #25056]  INFO -- : Cleared interactions
+I, [2021-02-14T12:01:41.744602 #25056]  INFO -- : Registered expected interaction GET /api/item
+D, [2021-02-14T12:01:41.744883 #25056] DEBUG -- : {
+  "description": "Get All Items Success",
+  "providerState": "Get All Items Success",
+  "request": {
+    "method": "GET",
+    "path": "/api/item",
+    "headers": {
+      "Accept": "application/json, text/plain, */*"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    "body": {
+      "json_class": "Pact::ArrayLike",
+      "contents": {
+        "id": {
+          "json_class": "Pact::SomethingLike",
+          "contents": "5ff1b4b389082b5b9912ae1f"
+        },
+        "name": {
+          "json_class": "Pact::SomethingLike",
+          "contents": "name"
+        },
+        "description": {
+          "json_class": "Pact::SomethingLike",
+          "contents": "description"
+        }
+      },
+      "min": 1
+    }
+  },
+  "metadata": null
+}
+I, [2021-02-14T12:01:41.750322 #25056]  INFO -- : Received request GET /api/item
+D, [2021-02-14T12:01:41.750493 #25056] DEBUG -- : {
+  "path": "/api/item",
+  "query": "",
+  "method": "get",
+  "headers": {
+    "Accept": "application/json, text/plain, */*",
+    "User-Agent": "axios/0.21.1",
+    "Host": "127.0.0.1:36877",
+    "Connection": "close",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2021-02-14T12:01:41.750845 #25056]  INFO -- : Found matching response for GET /api/item
+D, [2021-02-14T12:01:41.751073 #25056] DEBUG -- : {
+  "status": 200,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8"
+  },
+  "body": {
+    "json_class": "Pact::ArrayLike",
+    "contents": {
+      "id": {
+        "json_class": "Pact::SomethingLike",
+        "contents": "5ff1b4b389082b5b9912ae1f"
+      },
+      "name": {
+        "json_class": "Pact::SomethingLike",
+        "contents": "name"
+      },
+      "description": {
+        "json_class": "Pact::SomethingLike",
+        "contents": "description"
+      }
+    },
+    "min": 1
+  }
+}
+I, [2021-02-14T12:01:41.753222 #25056]  INFO -- : Verifying - interactions matched
+I, [2021-02-14T12:01:41.756466 #25056]  INFO -- : Cleared interactions
+I, [2021-02-14T12:01:41.760491 #25056]  INFO -- : Registered expected interaction DELETE /api/item/5ff1b4b389082b5b9912ae1f
+D, [2021-02-14T12:01:41.760673 #25056] DEBUG -- : {
+  "description": "Delete item success",
+  "providerState": "Delete Item Success",
+  "request": {
+    "method": "DELETE",
+    "path": "/api/item/5ff1b4b389082b5b9912ae1f",
+    "headers": {
+      "Accept": "application/json, text/plain, */*"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    }
+  },
+  "metadata": null
+}
+I, [2021-02-14T12:01:41.765539 #25056]  INFO -- : Received request DELETE /api/item/5ff1b4b389082b5b9912ae1f
+D, [2021-02-14T12:01:41.765711 #25056] DEBUG -- : {
+  "path": "/api/item/5ff1b4b389082b5b9912ae1f",
+  "query": "",
+  "method": "delete",
+  "headers": {
+    "Accept": "application/json, text/plain, */*",
+    "User-Agent": "axios/0.21.1",
+    "Host": "127.0.0.1:36877",
+    "Connection": "close",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2021-02-14T12:01:41.765962 #25056]  INFO -- : Found matching response for DELETE /api/item/5ff1b4b389082b5b9912ae1f
+I, [2021-02-14T12:01:41.767871 #25056]  INFO -- : Verifying - interactions matched
+D, [2021-02-14T12:01:41.768006 #25056] DEBUG -- : {
+  "status": 200,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8"
+  }
+}
+I, [2021-02-14T12:01:41.771940 #25056]  INFO -- : Cleared interactions
+I, [2021-02-14T12:01:41.775661 #25056]  INFO -- : Updating pact for ItemApi at /home/omer/work/code/contracttest/frontend/pact/pacts/itemweb-itemapi.json
+I, [2021-02-14T12:01:41.776917 #25056]  INFO -- : *****************************************************************************
+I, [2021-02-14T12:01:41.776990 #25056]  INFO -- : Updating existing file ./home/omer/work/code/contracttest/frontend/pact/pacts/itemweb-itemapi.json as pactfile_write_mode is :update
+I, [2021-02-14T12:01:41.777020 #25056]  INFO -- : Only interactions defined in this test run will be updated.
+I, [2021-02-14T12:01:41.777046 #25056]  INFO -- : As interactions are identified by description and provider state, pleased note that if either of these have changed, the old interactions won't be removed from the pact file until the specs are next run with :pactfile_write_mode => :overwrite.
+I, [2021-02-14T12:01:41.777071 #25056]  INFO -- : *****************************************************************************
