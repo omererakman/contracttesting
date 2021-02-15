@@ -12,7 +12,6 @@ exports.successResponseWithData = function (res, msg, data) {
 
 exports.createdResponseWithData = function (res, msg, data) {
 	var resData = data;
-	console.log('createdResponseWithData: ' + JSON.stringify(data));
 	return res.status(201).json(resData);
 };
 

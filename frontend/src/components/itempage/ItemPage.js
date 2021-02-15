@@ -1,7 +1,7 @@
 import ItemForm from "../itemform/ItemForm"
 import ItemList from "../itemlist/ItemList"
 import React from 'react';
-import { createItemRequest, deleteItem } from "../../client/itemClient";
+import {createItem, deleteItem } from "../../client/itemClient";
 
 class ItemPage extends React.Component {
     constructor(props) {
@@ -29,7 +29,7 @@ class ItemPage extends React.Component {
     }
 
     createItem(name, description) {
-        return createItemRequest({name: name, description: description})
+        return createItem({name: name, description: description})
         .then(res => {
             this.fetchItems();
         });

@@ -18,7 +18,6 @@ exports.listItems = [
 		try {
 			Item.find({},"_id name description").then((items)=>{
 				items = items.map(i => new ItemSchema(i));
-				console.log("listItems: " + JSON.stringify(items));
 				if(items.length > 0){
 					return apiResponse.successResponseWithData(res, "Success", items);
 				}else{
@@ -50,7 +49,6 @@ exports.createItem = [
 					name: req.body.name == undefined ? "": req.body.name,
 					description: req.body.description == undefined ? "": req.body.description
 				});
-			console.log("on create item: " + JSON.stringify(item) + " : " + req.body.name + " : " + req.body.description);
 			if (!errors.isEmpty()) {
 				console.log(errors);
 				return apiResponse.validationErrorWithData(res, "Validation Error.", errors.array());
@@ -62,7 +60,6 @@ exports.createItem = [
 						return apiResponse.ErrorResponse(res, err); 
 					}
 					let itemData = new ItemSchema(item);
-					console.log('itemData: ' + JSON.stringify(itemData) + ", : " + JSON.stringify(item));
 					return apiResponse.createdResponseWithData(res,"Item add Success.", itemData);
 				});
 			}

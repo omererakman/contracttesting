@@ -1,6 +1,6 @@
 const { pactWith } = require("jest-pact")
 const { Matchers, Pact } = require("@pact-foundation/pact")
-const { itemApi, createItemRequest, getItemsRequest, deleteItem } = require("../client/itemClient")
+const { itemApi, createItem, getItems, deleteItem } = require("../client/itemClient")
 
 const itemCreateSuccessInteraction = {
   state: "Create Item Success",
@@ -80,10 +80,8 @@ pactWith({ consumer: 'ItemWeb', provider: 'ItemApi' }, provider => {
 
       it('Test create item success', () => {
         itemApi.url = provider.mockService.baseUrl;
-        console.log(provider.mockService.baseUrl);
-        createItemRequest({name: "name2", description: "description1"})
+        createItem({name: "name2", description: "description1"})
           .then((value) => {
-            
             expect(value.status).toEqual(201);
         })
       });
@@ -94,10 +92,8 @@ pactWith({ consumer: 'ItemWeb', provider: 'ItemApi' }, provider => {
   
       it('Get All Items Success', () => {
         itemApi.url = provider.mockService.baseUrl;
-        console.log(provider.mockService.baseUrl);
-        getItemsRequest()
+        getItems()
           .then((value) => {
-            //console.log(value);
             expect(value.status).toEqual(200);
         })
       });
@@ -109,10 +105,8 @@ pactWith({ consumer: 'ItemWeb', provider: 'ItemApi' }, provider => {
   
       it('Delete Item Success', () => {
         itemApi.url = provider.mockService.baseUrl;
-        console.log(provider.mockService.baseUrl);
         deleteItem('5ff1b4b389082b5b9912ae1f')
           .then((value) => {
-            //console.log(value);
             expect(value.status).toEqual(200);
         })
       });

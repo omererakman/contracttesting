@@ -6,7 +6,7 @@ const api = () => {
 
 const itemApi = api();
 
-const createItemRequest = (item) => {
+const createItem = (item) => {
     return axios.post(itemApi.url + '/api/item', item);
 }
 
@@ -14,8 +14,8 @@ const deleteItem = (id) => {
     return axios.delete(itemApi.url + '/api/item/' + id);
 }
 
-const getItemsRequest = () => {
+const getItems = () => {
     return axios.get(itemApi.url + '/api/item');
 }
 
-export {createItemRequest, getItemsRequest, deleteItem, itemApi}
+export {createItem, getItems, deleteItem, itemApi}
